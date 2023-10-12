@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* html,
+body {
+    height: 100%;
+} */
+
+body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    background-color: #d3effb;
+}
+
+.dialogue {
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0 0 10px #3e92cc;
+    background-color: #f4f5f7;
+    margin: 20px auto;
+}
+
+.user {
+    display: flex;
+    /*設定子層，讓對話欄等高*/
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+/*防止字太少，致版面跑掉*/
+.local {
+    justify-content: flex-end;
+}
+
+.user .avatar {
+    width: 60px;
+    text-align: center;
+    /*讓圖不會自動收縮*/
+    flex-shrink: 0;
+}
+
+.user .pic {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user .pic img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.user .txt {
+    background-color: #aaa;
+    padding: 16px;
+    border-radius: 10px;
+    /*讓三角形定在文字區塊*/
+    position: relative;
+}
+
+.remote .txt {
+    margin-left: 20px;
+    margin-right: 80px;
+    color: #a1b4c5;
+    background-color: #fff;
+}
+
+.local .txt {
+    margin-right: 20px;
+    margin-left: 80px;
+    order: -1;
+    background-color: #3e92cc;
+    color: #fff;
+}
+
+/* 對話框的三角形 */
+.remote .txt:before,
+.local .txt:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    /*調整三角形大小*/
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+
+/*三角形朝左側*/
+.remote .txt::before {
+    border-right: 10px solid #fff;
+    left: -10px;
+}
+
+/*三角形朝右側*/
+.local .txt::before {
+    border-left: 10px solid #3e92cc;
+    right: -10px;
+}

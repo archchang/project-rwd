@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梗語產生器</title>
+    <link rel="stylesheet" href="./css/common/all.css">
+    <link rel="stylesheet" href="./css/common/header.css">
+    <link rel="stylesheet" href="./css/common/footer.css">
+    <link rel="stylesheet" href="./css/slanggenerator.css">
+    <script src="./js/slanggenerator.js"></script>
+    <style>
+        /*讓桌機版不會顯示漢堡按鈕*/
+        button.btn_hamburger {
+            display: none;
+        }
+	/*超過767.98，按鈕消失*/
+	/*超過767.98，按鈕出現*/
+        @media (max-width:767.98px) {
+            button.btn_hamburger {
+                display: inline-block;
+            }
+        }
+         /*=============aside 區域===============*/
+         aside.aside {
+            border: 1px solid blue;
+            background-color: lightblue;
+            width: var(--aside-width);
+	/*讓紅框往上跑，為了不讓右方白邊空在那*/
+            position: fixed;
+	/*讓區域固定在螢幕左上角*/
+            left: 0;
+	/*讓區域起始位置在header區塊的下方*/
+            top: var(--header-height);
+	/*讓區域高度不要貫穿header區塊*/
+            height: calc(100% - var(--header-height));
+	/*因為往下看不到最後的連結，故y方向要設定auto*/
+            overflow-y: auto;
+            padding: 20px 0;
+
+        }
+	/*控制螢幕寬小於767.98之側邊欄狀態*/
+	/*長度要有px，media和刮號之間要有空格*/
+        @media (max-width:767.98px) {
+            aside.aside {
+	/*貫穿header*/
+                top: 0;
+                height: 100%;
+	/*往左邊移動自已的寬度100%*/
+                transform: translateX(-100%);
+                transition: transform 1s;
+                z-index: 2;
+            }
+	/*讓原本消失的側邊欄出現*/
+            aside.aside.-on {
+                transform: translateX(0%);
+            }
+        }
+
+
+        nav.nav {
+            /* border: 1px solid black; */
+        }
+
+        nav.nav ul.nav_list {
+            /* border: 1px solid red; */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+	/*只針對第1個標籤加上邊框，其它不加 */
+        nav.nav ul.nav_list>li:first-child a {
+            border-top: 1px solid white;
+        }
+	/*第一層子元素`*/
+        nav.nav ul.nav_list>li {
+            /* border: 1px solid green; */
+        }
+
+        nav.nav ul.nav_list>li a {
+	/*因為中間比較粗，上下白框較細*/
+            border-bottom: 1px solid white;
+	/*讓連結字佔滿父元素*/
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--標頭-->
+    <header class="header">
+        <div class="logo"><a href="./index.html"><img src="./images/company_icon_black.svg"></a></div>
+        <ul>
+            <li><a href="./expertmodemanual.html"><span>Upgrade</span>升級專家模式</a></li>
+            <li><a href="./expertmode.html"><span>Expert</span>梗圖制作(專家模式)</a></li>
+            <li><a href="./juniormode.html"><span>Junior</span>梗圖制作(初階模式)</a></li>
+            <li><a href="./slanggenerator.html"><span>Slang</span>梗語產生器</a></li>
+            <li><a href="./useagreement.html"><span>Regulations</span>法律規範</a></li>
+            <li><a href="./resetpassword.html"><span>Reset password</span>密碼重置</a></li>
+            <li><a href="./loginscreen.html"><span>Log in</span>登入會員</a></li>
+        </ul>
+    </header>
+    <!--側邊欄-->
+<aside class="aside">
+    <button type="button" class="btn_hamburger">按鈕</button>
+    <nav class="nav">
+        <ul class="nav_list">
+               <li><a href="./expertmodemanual.html"><span>Upgrade</span>升級專家模式</a></li>
+            <li><a href="./expertmode.html"><span>Expert</span>梗圖制作(專家模式)</a></li>
+            <li><a href="./juniormode.html"><span>Junior</span>梗圖制作(初階模式)</a></li>
+            <li><a href="./slanggenerator.html"><span>Slang</span>梗語產生器</a></li>
+            <li><a href="./useagreement.html"><span>Regulations</span>法律規範</a></li>
+            <li><a href="./resetpassword.html"><span>Reset password</span>密碼重置</a></li>
+            <li><a href="./loginscreen.html"><span>Log in</span>登入會員</a></li>
+        </ul>
+    </nav>
+</aside>
+    <!--中間部份-->
+    <section class="sec1">
+        <div class="flex_container">
+            <div class="items -left" id="box">
+                <a class="move" onmousedown="move(this);" id="text"></a>
+            </div>
+            <div class="items -right">
+                <ul class="desc_list">
+                    <input type="radio" name="color" class="increase_font" onchange="blackBgWhiteWd()">黑底白字</input>
+                    <input type="radio" name="color" class="increase_font" onchange="whiteBgBlackWd()">白底黑字</input>
+                </ul>
+                <ul class="desc_list">
+                    <input type="radio" name="color" class="reduce_font" onchange="blackBgGreenWd()">黑底綠字</input>
+                    <input type="radio" name="color" class="reduce_font" onchange="redBgYellowWd()">紅底黃字</input>
+                </ul>
+                <textarea oninput="changeTextInput()" class="title1" cols="25" rows="5" id="textInput"></textarea>
+
+                <button onclick="download()" class="title1" id="download">完成下載圖片</button>
+            </div>
+        </div>
+    </section>
+
+    <!--底部-->
+    <footer class="footer">
+        <span class="text">本網站為緯育TibaMe【第87期】前端工程師專業技術養成班學員作品，僅供學習、展示之用途。</span>
+    </footer>
+</body>
+<script>
+	//要用迴圈，不然只有第1個按鈕有效
+        let btn_el = document.getElementsByClassName("btn_hamburger");
+        //[button,button]
+	//小於長度個數
+        for (let i = 0; i < btn_el.length; i++) {
+            // console.log(i);
+            btn_el[i].addEventListener("click", function () {
+                // alert("tt");
+		//點擊側邊欄可出現和隱藏
+                let aside_el = document.getElementsByClassName("aside")[0];
+                aside_el.classList.toggle("-on");
+		//側邊欄出現，頁面不可上下滑動
+		//側邊欄隱藏，頁面可滑動
+                let body_el = document.getElementsByTagName("body")[0];
+                body_el.classList.toggle("no_scroll");
+		//側邊欄出現，讓右側頁面模糊
+                let header_el = document.getElementsByClassName("header")[0];
+                let main_el = document.getElementsByClassName("main")[0];
+                header_el.classList.toggle("-blur");
+                main_el.classList.toggle("-blur");
+            });
+        }
+    </script>
+
+</html>

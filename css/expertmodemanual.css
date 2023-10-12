@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.banner {
+    /*多重背景寫法*/
+    width: 100%;
+    height: 700px;
+    background-color: #ccc;
+    background:
+        linear-gradient(115deg, #7bf 50%,
+            /*調整角度斜切*/
+            transparent 50%) center center / 100% 100%,
+        url("https://picsum.photos/1200/600?random=10") right center / auto 100%;
+}
+
+.container {
+    width: 100%;
+    /*配合RWD*/
+    max-width: 1440px;
+    margin: auto;
+    height: 100%;
+}
+
+.banner-txt {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /*不要讓橫線填滿*/
+}
+
+.banner-txt h1 {
+    font-size: 80px;
+    border-bottom: 1px solid #333;
+    font-weight: 900;
+    padding-bottom: .3em;
+    margin-bottom: .3em;
+}
+
+.banner-txt h1 small {
+    display: block;
+    font-size: 53px;
+    font-weight: 700;
+}
+
+.banner-txt h2 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.banner-txt p {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.btn {
+    width: 200px;
+    height: 64px;
+    background-image: linear-gradient(135deg, #6555a0 0%, #578aef 55%, #8f41e9 100%);
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

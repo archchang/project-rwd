@@ -1,0 +1,134 @@
+.wrap {
+    width: 960px;
+    margin: auto;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+/*使用float，必須要clear*/
+.wrap:after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 0px;
+    clear: both;
+}
+
+.timeline {
+    padding: 100px 0 200px;
+}
+
+.timeline li {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20px 0;
+    position: relative;
+}
+
+.timeline li:nth-child(odd) {
+    float: left;
+    padding-right: 100px;
+}
+
+.timeline li:nth-child(even) {
+    float: right;
+    padding-left: 100px;
+    /*右側向下偏移*/
+    transform: translateY(50%);
+}
+
+/*中間直向的一條線*/
+.timeline li:nth-child(odd)::after {
+    content: '';
+    position: absolute;
+    /*讓線不要蓋住圓點*/
+    z-index: -1;
+    width: 1px;
+    top: 0;
+    height: 100%;
+    background-color: #ccc;
+    right: 0;
+}
+
+.timeline li:last-child::after {
+    height: 50%;
+}
+
+.timeline li:before {
+    content: '';
+    position: absolute;
+    /*top、bottom、margin讓圓點置中*/
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #aaa;
+    /*讓原本蓋住圓點的線跑到最底下*/
+    z-index: 2;
+}
+
+/*原本在左上角的圓點，移到中間*/
+/*讓奇數跟偶數長的不一樣*/
+.timeline li:nth-child(odd)::before {
+    right: -10px;
+}
+
+.timeline li:nth-child(even)::before {
+    left: -10px;
+}
+
+.timeline a {
+    /*超連結原本不是block，必須要給它block*/
+    display: block;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px #888;
+}
+
+.timeline a:hover {
+    background-color: #6fa5f6;
+}
+
+.timeline a:hover h2,
+.timeline a:hover p {
+    color: #00ffff;
+}
+
+.timeline h2 {
+    color: #333;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+}
+
+.timeline p {
+    color: #666;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 100;
+}
+
+/*讓橫線出現*/
+.timeline h2::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100px;
+    background-color: #aaa;
+    /*讓線出現在橫線中間*/
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+/*讓橫線可以連接中間的直線*/
+.timeline li:nth-child(odd) h2::after {
+    right: 0;
+}
+
+.timeline li:nth-child(even) h2::after {
+    left: 0;
+}

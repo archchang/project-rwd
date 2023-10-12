@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+    <link rel="stylesheet" href="./css/common/all.css">
+    <link rel="stylesheet" href="./css/common/header.css">
+    <link rel="stylesheet" href="./css/common/footer.css">
+    <link rel="stylesheet" href="./css/useagreement.css">
+    <style>
+        /*讓桌機版不會顯示漢堡按鈕*/
+        button.btn_hamburger {
+            display: none;
+        }
+	/*超過767.98，按鈕消失*/
+	/*超過767.98，按鈕出現*/
+        @media (max-width:767.98px) {
+            button.btn_hamburger {
+                display: inline-block;
+            }
+        }
+         /*=============aside 區域===============*/
+         aside.aside {
+            border: 1px solid blue;
+            background-color: lightblue;
+            width: var(--aside-width);
+	/*讓紅框往上跑，為了不讓右方白邊空在那*/
+            position: fixed;
+	/*讓區域固定在螢幕左上角*/
+            left: 0;
+	/*讓區域起始位置在header區塊的下方*/
+            top: var(--header-height);
+	/*讓區域高度不要貫穿header區塊*/
+            height: calc(100% - var(--header-height));
+	/*因為往下看不到最後的連結，故y方向要設定auto*/
+            overflow-y: auto;
+            padding: 20px 0;
+
+        }
+	/*控制螢幕寬小於767.98之側邊欄狀態*/
+	/*長度要有px，media和刮號之間要有空格*/
+        @media (max-width:767.98px) {
+            aside.aside {
+	/*貫穿header*/
+                top: 0;
+                height: 100%;
+	/*往左邊移動自已的寬度100%*/
+                transform: translateX(-100%);
+                transition: transform 1s;
+                z-index: 2;
+            }
+	/*讓原本消失的側邊欄出現*/
+            aside.aside.-on {
+                transform: translateX(0%);
+            }
+        }
+
+
+        nav.nav {
+            /* border: 1px solid black; */
+        }
+
+        nav.nav ul.nav_list {
+            /* border: 1px solid red; */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+	/*只針對第1個標籤加上邊框，其它不加 */
+        nav.nav ul.nav_list>li:first-child a {
+            border-top: 1px solid white;
+        }
+	/*第一層子元素`*/
+        nav.nav ul.nav_list>li {
+            /* border: 1px solid green; */
+        }
+
+        nav.nav ul.nav_list>li a {
+	/*因為中間比較粗，上下白框較細*/
+            border-bottom: 1px solid white;
+	/*讓連結字佔滿父元素*/
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--標頭-->
+    <header class="header">
+        <div class="logo"><a href="./index.html"><img src="./images/company_icon_black.svg"></a></div>
+        <ul>
+            <li><a href="./expertmodemanual.html"><span>Upgrade</span>升級專家模式</a></li>
+            <li><a href="./expertmode.html"><span>Expert</span>梗圖制作(專家模式)</a></li>
+            <li><a href="./juniormode.html"><span>Junior</span>梗圖制作(初階模式)</a></li>
+            <li><a href="./slanggenerator.html"><span>Slang</span>梗語產生器</a></li>
+            <li><a href="./useagreement.html"><span>Regulations</span>法律規範</a></li>
+            <li><a href="./resetpassword.html"><span>Reset password</span>密碼重置</a></li>
+            <li><a href="./loginscreen.html"><span>Log in</span>登入會員</a></li>
+        </ul>
+    </header>
+    <!--側邊欄-->
+<aside class="aside">
+    <button type="button" class="btn_hamburger">按鈕</button>
+    <nav class="nav">
+        <ul class="nav_list">
+               <li><a href="./expertmodemanual.html"><span>Upgrade</span>升級專家模式</a></li>
+            <li><a href="./expertmode.html"><span>Expert</span>梗圖制作(專家模式)</a></li>
+            <li><a href="./juniormode.html"><span>Junior</span>梗圖制作(初階模式)</a></li>
+            <li><a href="./slanggenerator.html"><span>Slang</span>梗語產生器</a></li>
+            <li><a href="./useagreement.html"><span>Regulations</span>法律規範</a></li>
+            <li><a href="./resetpassword.html"><span>Reset password</span>密碼重置</a></li>
+            <li><a href="./loginscreen.html"><span>Log in</span>登入會員</a></li>
+        </ul>
+    </nav>
+</aside>
+    <div class="dialogue">
+        <div class="user remote">
+            <div class="avatar">
+                <div class="pic">
+                    <img src="./images/嘲諷1.jpg">
+                </div>
+                <div class="name">老人</div>
+            </div>
+            <div class="txt">
+                當您在本站註冊成正式使用者，開始使用本服務時，即表示您已閱讀、瞭解並同意接受本約定書之所有內容。
+                本站有權於任何時間修改或變更本約定書之內容
+            </div>
+        </div>
+        <div class="user local">
+            <div class="avatar">
+                <div class="pic">
+                    <img src="./images/影射1.jpg">
+                </div>
+                <div class="name">汪汪</div>
+            </div>
+            <div class="txt">
+                若您提供的資料錯誤不實，本站有權暫停或終止對您的帳號，並拒絕您使用本服務。
+            </div>
+        </div>
+        <div class="user remote">
+            <div class="avatar">
+                <div class="pic">
+                    <img src="./images/嘲諷1.jpg">
+                </div>
+                <div class="name">老人</div>
+            </div>
+            <div class="txt">
+                除非是下列情況，本站不會向任何人公開您的資料：
+                1.基於法律相關規定
+                2.接受司法機關或是其他有權機關基於法定程序之要求
+                3.在緊急情況下為維護使用者或第三人之人身安全
+            </div>
+        </div>
+        <div class="user local">
+            <div class="avatar">
+                <div class="pic">
+                    <img src="./images/影射1.jpg">
+                </div>
+                <div class="name">汪汪</div>
+            </div>
+            <div class="txt">
+                在本站完成註冊後，您將會有一組帳號以及密碼。維持密碼及帳號的機密安全，是您的責任；使用該密碼及帳號所進行的一切行動，您將負完全的責任。
+            </div>
+        </div>
+        <div class="user remote">
+            <div class="avatar">
+                <div class="pic">
+                    <img src="./images/嘲諷1.jpg">
+                </div>
+                <div class="name">老人</div>
+            </div>
+            <div class="txt">
+                您承諾絕不為任何非法目的或以任何非法方式使用本服務，並承諾遵守中華民國相關法規及一切使用網際網路之國際慣例。 (若您為中華民國以外之使用者，並同意遵守所屬國家或地域之法令)
+                您同意並保證不得利用本服務從事侵害他人權益或違法之行為
+            </div>
+        </div>
+    </div>
+    <!--中間部份-->
+    <!-- <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="mt-4">
+                    <h2 class="h4">1. 認知與接受條款</h2>
+                    <p>
+                        梗圖倉庫 (以下簡稱本站) 係依據本服務條款提供梗圖倉庫之 web
+                        以及其他相關之服務(以下簡稱本服務)。當您在本站註冊成正式使用者，開始使用本服務時，即表示您已閱讀、瞭解並同意接受本約定書之所有內容。<br />
+                        本站有權於任何時間修改或變更本約定書之內容，唯在修改或變更後，須立即公告於網站首頁 (恕不再個別另行寄發通知)
+                        您於任何修改或變更後繼續使用本服務，即視為您已閱讀、瞭解並同意接受該等修改或變更. 如果您不同意本約定書的內容，您應該立即停止使用本站提供的任何服務。
+                    </p>
+
+                    <h2 class="h4">2. 您的註冊義務</h2>
+                    <p>為了能使用本服務，您同意以下事項：
+                    <ul>
+                        <li>依照本服務註冊表之提示，提供您本人正確、最新以及完整的資料。</li>
+                        <li>維持並更新您的個人資料，以確保其正確、最新及完整。</li>
+                    </ul>
+                    若您提供的資料錯誤不實，本站有權暫停或終止對您的帳號，並拒絕您使用本服務。
+                    </p>
+
+
+                    <h2 class="h4">3. 隱私權政策</h2>
+                    <p>
+                    <ul>
+                        <li>本站依上述規定收集您的個人資料，以及在您每次登入本站的時候，會紀錄下您的互聯網協定位址 (IP Address)</li>
+                        <li>本站不會對任何人出售或出借您的個人資料</li>
+                        <li>除非是下列情況，本站不會向任何人公開您的資料：<ul>
+                                <li>基於法律相關規定</li>
+                                <li>接受司法機關或是其他有權機關基於法定程序之要求</li>
+                                <li>在緊急情況下為維護使用者或第三人之人身安全</li>
+                            </ul>
+                        <li>本網站會從 Facebook API 詢問您的名字、Email與照片。</li>
+                        <li>本網站會利用這些資訊建立您的個人檔案，也會用來顯示在網站上。</li>
+                        <li>本網站也會利用這些資訊建立社群資料，讓大家知道哪些使用者貢獻特別多。</li>
+                        <li>如果您要刪除網站上的個人資料，請透過 FB 粉專聯絡站長。</li>
+                    </ul>
+                    </p>
+
+                    <h2 class="h4">4. 使用者帳號、密碼及安全</h2>
+                    <p>在本站完成註冊後，您將會有一組帳號以及密碼。維持密碼及帳號的機密安全，是您的責任；使用該密碼及帳號所進行的一切行動，您將負完全的責任。</p>
+
+                    <h2 class="h4">5. 使用者的守法義務及承諾</h2>
+                    <p>您承諾絕不為任何非法目的或以任何非法方式使用本服務，並承諾遵守中華民國相關法規及一切使用網際網路之國際慣例。 (若您為中華民國以外之使用者，並同意遵守所屬國家或地域之法令)
+                        您同意並保證不得利用本服務從事侵害他人權益或違法之行為，包括但不限於：
+                    <ul>
+                        <li>妨害他人名譽或隱私權</li>
+                        <li>張貼任何誹謗、侮辱、具威脅性、攻擊性、不雅、猥褻、不實、違反公共秩序、善良風俗或其他不法之文字。</li>
+                        <li>違反依法律或契約所應負之保密義務</li>
+                        <li>冒用他人名義使用本服務</li>
+                        <li>從事不法交易行為</li>
+                        <li>濫發廣告郵件及張貼廣告文章</li>
+                        <li>其他本站有正當理由認為不適當之行為</li>
+                    </ul>
+                    </p>
+
+                    <h2 class="h4">6. 系統中斷或故障、免責聲明</h2>
+                    <p>本站將盡最大努力維護本站的正常運作以及資料安全。本服務有可能出現中斷或故障等等的情況，或許會造成您使用上的不便，資料的喪失、錯誤、遭人篡改或其他損失情形.
+                        您於使用本服務時宜自行採取防護措施。本站對你因為使用 (或無法使用) 本服務而造成的損害，將不負任何賠償責任。</p>
+
+                    <h2 class="h4">7. 使用者行為</h2>
+                    <p>由使用者公開張貼或私下傳送之任何資料 (以下簡稱使用者內容) ，由該使用者自負責任。本站無法控制使用者經由本服務提供之「使用者內容」，因此不保證其內容之正確性、完整性或品質。<br />
+                        您了解在使用本服務時, 可能會接觸到令人不快、不適當、令人厭惡之「使用者內容」。<br />
+                        在任何情況下，本站均不為任何「使用者內容」負責。包含但不限於任何錯誤或遺漏，以及經由「使用者內容」衍生之任何損失或損害。<br />
+                        您了解本站並未針對「使用者內容」事先加以審查認可，唯本站有權(但無義務)依其自行之考量，拒絕或移除經由本服務提供之任何「使用者內容」。<br />
+                        本站有權將違反本服務條款和令人厭惡之任何「使用者內容」移除。</p>
+
+                    <h2 class="h4">8. 拒絕或終止您的使用</h2>
+                    <p>您同意本站基於其自行之考量，因任何理由 (包括本站認定您已經違反了本服務條款的明文規定及精神)
+                        終止您的帳號以及密碼。本站亦得依其自行之考量，隨時終止本服務或其任何部分。此外，您同意若本服務被終止時，本站對您或任何第三人均不承擔責任。</p>
+
+                    <h2 class="h4">9. 準據法與管轄法院</h2>
+                    <p>本約定書之解釋與適用，以及與本約定書有關之爭議，均應依照中華民國法律處理之。雙方並同意以台北地方法院為第一審管轄法院。</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--底部-->
+    <footer class="footer">
+        <span class="text">本網站為緯育TibaMe【第87期】前端工程師專業技術養成班學員作品，僅供學習、展示之用途。</span>
+    </footer>
+</body>
+<script>
+	//要用迴圈，不然只有第1個按鈕有效
+        let btn_el = document.getElementsByClassName("btn_hamburger");
+        //[button,button]
+	//小於長度個數
+        for (let i = 0; i < btn_el.length; i++) {
+            // console.log(i);
+            btn_el[i].addEventListener("click", function () {
+                // alert("tt");
+		//點擊側邊欄可出現和隱藏
+                let aside_el = document.getElementsByClassName("aside")[0];
+                aside_el.classList.toggle("-on");
+		//側邊欄出現，頁面不可上下滑動
+		//側邊欄隱藏，頁面可滑動
+                let body_el = document.getElementsByTagName("body")[0];
+                body_el.classList.toggle("no_scroll");
+		//側邊欄出現，讓右側頁面模糊
+                let header_el = document.getElementsByClassName("header")[0];
+                let main_el = document.getElementsByClassName("main")[0];
+                header_el.classList.toggle("-blur");
+                main_el.classList.toggle("-blur");
+            });
+        }
+    </script>
+
+</html>

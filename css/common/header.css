@@ -1,0 +1,55 @@
+header.header {
+    /*水平並列*/
+    display: flex;
+    /*左右對齊*/
+    /* justify-content: space-between; */
+    /*垂直居中對齊*/
+    align-items: center;
+    /*標頭寬度*/
+    width: 1200px;
+}
+
+header.header .logo {
+    /*標頭的寬度*/
+    width: 100px;
+}
+
+header.header .logo img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+header.header ul {
+    /*水平並列*/
+    display: flex;
+    /*讓Flex item往結尾靠齊*/
+    justify-content: flex-end;
+    /*配置導覽列，填滿空白*/
+    flex: 1;
+    list-style: none;
+    max-width: 100%;
+    margin-left: 50px;
+
+}
+
+header.header li:not(:last-child) {
+    /*指定為最後一個li以外的li*/
+    margin-right: 20px;
+}
+
+header.header li a {
+    display: flex;
+    /*將flex item設定成垂直排列的格式*/
+    flex-direction: column;
+    color: #111;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+header.header li a span {
+    color: #5b8f8f;
+    font-size: 13px;
+}

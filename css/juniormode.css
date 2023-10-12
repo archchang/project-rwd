@@ -1,0 +1,131 @@
+section.sec1 {
+    /* border: 1px solid red; */
+    min-width: 600px;
+    padding: 100px 0;
+}
+
+section.sec1 div.flex_container {
+    /* border: 1px solid blue; */
+    width: 600px;
+    margin: 0 auto;
+
+    display: flex;
+}
+
+/* section.sec1 div.flex_container div.items { */
+    /* border: 1px solid green; */
+/* } */
+
+section.sec1 div.flex_container div.items.-left {
+    border: 1px solid black;
+    flex-basis: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    background-size: cover;
+}
+
+section.sec1 div.flex_container div.items.-left div.img_block {
+    border: 1px solid gray;
+    font-size: 0;
+}
+
+section.sec1 div.flex_container div.items.-left div.img_block img {
+    width: 100%;
+}
+
+section.sec1 div.flex_container div.items.-right {
+    flex-grow: 1;
+    /* border: 1px solid red; */
+}
+
+div.flex_container div.items.-right h1.title1 {
+    /* border: 1px solid blue; */
+    margin: 10px 0 0 0;
+    font-size: 20px;
+}
+
+div.flex_container div.items.-right ul.desc_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.flex_container div.items.-right ul.desc_list>li {
+    color: gray;
+    margin: 10px 0;
+}
+
+div.flex_container div.items.-right ul.desc_list>li span.increase_font {
+    text-decoration: line-through;
+}
+
+div.flex_container div.items.-right ul.desc_list>li:last-child {
+    color: orange;
+}
+
+div.flex_container div.items.-right ul.desc_list>li:last-child span.reduce_font {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div.flex_container div.items.-right p {
+    line-height: 1.8;
+}
+
+div.flex_container div.items.-right form.buy_form {
+    background-color: gray;
+    padding: 10px;
+}
+
+div.flex_container div.items.-right form.buy_form div.item_block {
+    /* border: 1px solid blue; */
+    margin-bottom: 5px;
+}
+
+form.buy_form div.item_block label.label_item,
+form.buy_form div.item_block input.buy_count {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+form.buy_form div.item_block input.buy_count {
+    padding: 5px 10px;
+}
+
+form.buy_form div.item_block label.label_item,
+form.buy_form div.item_block span.temp {
+    margin-right: 5px;
+    display: inline-block;
+    width: 70px;
+}
+
+#box {
+    position: relative;
+    font-family: 'Noto Sans';
+}
+
+.move {
+    position: absolute;
+    z-index: 1; 
+    white-space: pre-line;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.moving {
+    position: absolute;
+    z-index: 1;
+    white-space: pre-line;
+    color: red;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+#imgbg{
+    width: 300px;
+    height: 300px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}

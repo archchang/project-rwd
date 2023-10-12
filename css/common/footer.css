@@ -1,0 +1,15 @@
+footer.footer {
+    background-color: white;
+    color: red;
+    padding: 20px 0;
+    text-align: center;
+    min-width: 600px;
+    border-top: 1px solid black;
+    font-size: 18px;
+}
+
+footer.footer span.text {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+}
